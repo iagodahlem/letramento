@@ -15,18 +15,8 @@
   background-color: var(--primary);
   overflow: hidden;
 }
-@media screen and (min-width: 768px) {
-  .TextItem {
-    width: calc(50% - 1em);
-  }
-}
-@media screen and (min-width: 1024px) {
-  .TextItem {
-    width: calc(33.3% - 1em);
-  }
-}
 
-.TextItem__body,
+.TextItem__content,
 .TextItem__footer {
   padding: 1em;
 }
@@ -62,4 +52,15 @@
 
 .TextItem__link:hover {
   opacity: .8;
+}
+
+@media screen and (min-width: 768px) {
+  .TextItem {
+    width: calc(50% - 1em);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .TextItem {
+    width: calc(33.3% - 1em);
+  }
 }

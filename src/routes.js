@@ -17,7 +17,7 @@ const routes = (
         <App>
           <Route exact path='/' component={Home} />
           <Route exact path='/textos/:id' component={Text} />
-          <Route exact path='/jogo' component={Game} />
+          <Route exact path='/textos/:id/jogo' component={Game} />
           <Route exact path='/jogo/final' component={GameFinal} />
         </App>
       </Switch>

@@ -13,8 +13,6 @@
 }
 
 .TextCard__footer {
-  display: flex;
-  justify-content: flex-end;
   background-color: rgba(0,0,0,.2);
 }
 
@@ -39,6 +37,21 @@
 
 .TextCard__body {
   margin-top: 1em;
+}
+
+.TextCard__link {
+  padding: .4375em 1.5em .5em;
+  background-color: transparent;
+  border: 2px solid var(--white);
+  border-radius: 50vh;
+  outline: none;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 1.3em;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity .1s ease;
 }
 
 @media screen and (min-width: 768px) {

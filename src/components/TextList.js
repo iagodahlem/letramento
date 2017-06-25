@@ -4,13 +4,15 @@ import './TextList.css'
 
 const TextItem = ({ text }) => (
   <div className='TextItem'>
-    <div className='TextItem__body'>
+    <div className='TextItem__content'>
       <h3 className='TextItem__title'>{text.title}</h3>
       <p className='TextItem__description'>{text.description}</p>
     </div>
 
     <footer className='TextItem__footer'>
-      <Link className='TextItem__link' to={`/textos/${text.id}`}>Ver Texto</Link>
+      <Link className='TextItem__link' to={`/textos/${text.id}`}>
+        Ver Texto
+      </Link>
     </footer>
   </div>
 )

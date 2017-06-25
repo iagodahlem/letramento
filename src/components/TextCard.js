@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Button from './Button'
+import { Link } from 'react-router-dom'
 import './TextCard.css'
 
 const TextCard = ({ text }) => (
@@ -18,9 +18,9 @@ const TextCard = ({ text }) => (
     </div>
 
     <footer className="TextCard__footer">
-      <Button onClick={() => {}} transparent>
+      <Link className='TextCard__link' to={`/textos/${text.id}/jogo`}>
         Iniciar Jogo
-      </Button>
+      </Link>
     </footer>
   </div>
 )

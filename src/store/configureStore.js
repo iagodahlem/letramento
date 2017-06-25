@@ -9,6 +9,14 @@ const initialState = {
     isFetching: false,
     errorMessage: null,
   },
+  game: {
+    words: [],
+    currentWord: '',
+    guesses: [],
+    lives: 6,
+    isFetching: false,
+    errorMessage: null,
+  }
 }
 
 const configureStore = () => {
