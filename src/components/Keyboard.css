@@ -1,0 +1,12 @@
+.Keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.Keyboard__key {
+  padding: .8em;
+  border: 1px solid #fff;
+}

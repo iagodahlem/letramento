@@ -1,0 +1,49 @@
+.TextCard {
+  display: flex;
+  flex-direction: column;
+  border-radius: .5em;
+  background-color: var(--primary);
+  color: var(--white);
+  overflow: hidden;
+}
+
+.TextCard__content,
+.TextCard__footer {
+  padding: 1.2em;
+}
+
+.TextCard__footer {
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgba(0,0,0,.2);
+}
+
+.TextCard__title {
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.TextCard__description {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.TextCard__author {
+  font-size: .8em;
+  font-weight: 500;
+}
+.TextCard__author > span {
+  opacity: .9;
+}
+
+.TextCard__body {
+  margin-top: 1em;
+}
+
+@media screen and (min-width: 768px) {
+  .TextCard__content,
+  .TextCard__footer {
+    padding: 1.5em;
+  }
+}

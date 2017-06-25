@@ -1,0 +1,32 @@
+.Spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+}
+
+.Spinner__bounce {
+  width: 12px;
+  height: 12px;
+  margin: 2px;
+  background-color: var(--300);
+  border-radius: 50%;
+  animation: spinnerBounce 1s infinite ease both;
+}
+
+.Spinner__bounce--1 {
+  animation-delay: -.32s;
+}
+
+.Spinner__bounce--2 {
+  animation-delay: -.16s;
+}
+
+@keyframes spinnerBounce {
+  from {
+    transform: scale3d(1,1,1);
+  }
+  to {
+    transform: scale3d(.7,.7,1);
+  }
+}

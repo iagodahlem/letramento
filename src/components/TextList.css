@@ -1,0 +1,65 @@
+.TextList {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -1em;
+  margin-left: -1em;
+}
+
+.TextItem {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 1em);
+  margin-top: 1em;
+  margin-left: 1em;
+  border-radius: .5em;
+  background-color: var(--primary);
+  overflow: hidden;
+}
+@media screen and (min-width: 768px) {
+  .TextItem {
+    width: calc(50% - 1em);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .TextItem {
+    width: calc(33.3% - 1em);
+  }
+}
+
+.TextItem__body,
+.TextItem__footer {
+  padding: 1em;
+}
+
+.TextItem__footer {
+  display: flex;
+  background-color: rgba(0,0,0,.2);
+}
+
+.TextItem__title,
+.TextItem__description {
+  color: var(--white);
+}
+
+.TextItem__title {
+  font-size: 1.25em;
+}
+
+.TextItem__link {
+  padding: .4375em 1.5em .5em;
+  background-color: transparent;
+  border: 2px solid var(--white);
+  border-radius: 50vh;
+  outline: none;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity .1s ease;
+}
+
+.TextItem__link:hover {
+  opacity: .8;
+}

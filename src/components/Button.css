@@ -1,0 +1,37 @@
+.Button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 120px;
+  padding: .4375em 1.5em .5em;
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: 50vh;
+  outline: none;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 1.3em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .1s ease;
+}
+
+.Button:hover {
+  opacity: .8;
+}
+
+.Button:disabled {
+  background-color: var(--300);
+  border-color: var(--300);
+  cursor: not-allowed;
+}
+
+.Button:disabled:hover {
+  opacity: 1;
+}
+
+.Button--transparent {
+  background-color: transparent;
+  border-color: var(--white);
+  color: var(--white);
+}

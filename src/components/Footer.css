@@ -1,0 +1,13 @@
+.Footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5em;
+  padding: var(--gutter);
+  border-top: 1px solid var(--100);
+}
+
+.Footer p {
+  font-size: .8em;
+  font-weight: 700;
+  text-align: center;
+}
