@@ -17,6 +17,8 @@ export const getTextsErrorMessage = (state) => fromTexts.getErrorMessage(state.t
 export const getWords = (state) => fromGame.getWords(state.game)
 export const getCurrentWord = (state) => fromGame.getCurrentWord(state.game)
 export const getGuesses = (state) => fromGame.getGuesses(state.game)
+export const getCorrectGuesses = (state) => fromGame.getCorrectGuesses(state.game)
 export const getLives = (state) => fromGame.getLives(state.game)
+export const getWon = (state) => fromGame.getWon(state.game)
 export const getGameIsFetching = (state) => fromGame.getIsFetching(state.game)
 export const getGameErrorMessage = (state) => fromGame.getErrorMessage(state.game)

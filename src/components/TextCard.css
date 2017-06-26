@@ -25,6 +25,7 @@
 .TextCard__description {
   font-size: 1.2em;
   font-weight: 500;
+  line-height: 1.2;
 }
 
 .TextCard__author {

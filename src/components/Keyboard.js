@@ -18,6 +18,7 @@ const Keyboard = ({ guesses, onClick }) => (
 
 const KeyboardButton = ({ letter, guesses, onClick }) => (
   <button
+    className='KeyboardButton'
     type='button'
     disabled={guesses.includes(letter.toLowerCase())}
     onClick={() => onClick(letter)}

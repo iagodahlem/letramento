@@ -1,0 +1,21 @@
+.Word {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+}
+
+.WordLetter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 40px;
+  margin-right: .3em;
+  margin-left: .3em;
+  margin-bottom: .3em;
+  border-bottom: 2px solid var(--300);
+  color: var(--900);
+  font-size: 1.6em;
+  font-weight: 500;
+}

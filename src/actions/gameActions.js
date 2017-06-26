@@ -31,11 +31,14 @@ const startGame = (id) => (dispatch, getState) => {
 
 const guessLetter = (l) => (dispatch, getState) => {
   const currentWord = fromReducers.getCurrentWord(getState()).toLowerCase()
+  const correctGuesses = fromReducers.getCorrectGuesses(getState())
   const letter = l.toLowerCase()
   const guess = currentWord.includes(letter)
 
   dispatch({
     type: types.GUESS_LETTER,
+    currentWord,
+    correctGuesses,
     letter,
     guess,
   })

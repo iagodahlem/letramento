@@ -1,12 +1,33 @@
 .Keyboard {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
 }
 
-.Keyboard__key {
-  padding: .8em;
-  border: 1px solid #fff;
+.KeyboardButton {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 38px;
+  padding: .5em;
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: .6em;
+  outline: none;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .1s ease;
+  margin: .2em;
+}
+
+.KeyboardButton:disabled {
+  background-color: var(--300);
+  border-color: var(--300);
+  cursor: not-allowed;
 }

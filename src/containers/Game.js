@@ -23,25 +23,39 @@ class Game extends Component {
     guessLetter(letter)
   }
 
+  renderGameWinLose() {
+    const { currentWord, guesses, lives, won } = this.props
+
+    if (lives <= 0) {
+      return (
+        <p>Você PERDEU.</p>
+      )
+    }
+
+    if (won) {
+      return (
+        <p>Você GANHOU.</p>
+      )
+    }
+
+    return (
+      <HangmanGame
+        word={currentWord}
+        lives={lives}
+        guesses={guesses}
+        onClickGuess={this.guess}
+      />
+    )
+  }
+
   render() {
-    const {
-      currentWord,
-      guesses,
-      lives,
-      isFetching,
-      errorMessage,
-    } = this.props
+    const { isFetching, errorMessage } = this.props
 
     return (
       <Page isFetching={isFetching}>
         {errorMessage
           ? `Houve um erro ao carregar os dados. ${errorMessage}`
-          : <HangmanGame
-              word={currentWord}
-              lives={lives}
-              guesses={guesses}
-              onClickGuess={this.guess}
-            />}
+          : this.renderGameWinLose()}
       </Page>
     )
   }
@@ -52,6 +66,7 @@ Game.propTypes = {
   currentWord: PropTypes.string.isRequired,
   guesses: PropTypes.array.isRequired,
   lives: PropTypes.number.isRequired,
+  won: PropTypes.bool.isRequired,
   isFetching: PropTypes.bool.isRequired,
   errorMessage: PropTypes.string,
   startGame: PropTypes.func.isRequired,
@@ -63,6 +78,7 @@ const mapStateToProps = (state, { match }) => ({
   currentWord: fromReducers.getCurrentWord(state),
   guesses: fromReducers.getGuesses(state),
   lives: fromReducers.getLives(state),
+  won: fromReducers.getWon(state),
   isFetching: fromReducers.getGameIsFetching(state),
   errorMessage: fromReducers.getGameErrorMessage(state),
 })

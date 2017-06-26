@@ -1,3 +1,3 @@
-const aphabelt = 'ABCDEFGHIJKLMNOPQRSTUVXZ'.split('')
+const aphabelt = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 
 export default aphabelt
