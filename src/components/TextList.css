@@ -23,6 +23,7 @@
 
 .TextItem__footer {
   display: flex;
+  margin-top: auto;
   background-color: rgba(0,0,0,.2);
 }
 
