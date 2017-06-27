@@ -25,7 +25,7 @@ class Home extends Component {
         title='Letramento'
         description='
           Trabalho de Inteligência Artificial para os cursos de computação da Ulbra.
-          Letramento é um jogo para o auxilio no aprendizado de novos "textos" (ajustar essa palavra),
+          Letramento é um jogo da forca para o auxilio no aprendizado de novas palavras e conteúdos,
           utilizando um agente distribuido que minera textos previamente cadastrados.
           Escolha um texto abaixo para começar a jogar.
         '
