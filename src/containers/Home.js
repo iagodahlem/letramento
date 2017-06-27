@@ -21,6 +21,7 @@ class Home extends Component {
 
     return (
       <Page
+        header={false}
         title='Letramento'
         description='
           Trabalho de Inteligência Artificial para os cursos de computação da Ulbra.

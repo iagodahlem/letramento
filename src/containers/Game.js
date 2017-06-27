@@ -3,11 +3,13 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as gameActions from '../actions/gameActions'
 import * as fromReducers from '../reducers'
-import Page from '../components/Page'
+import Button from '../components/Button'
+import GameFinal from '../components/GameFinal'
 import HangmanGame from '../components/HangmanGame'
+import Page from '../components/Page'
 
 class Game extends Component {
-  componentDidMount = () => {
+  componentDidMount() {
     this.start()
   }
 
@@ -18,8 +20,15 @@ class Game extends Component {
     startGame(id)
   }
 
+  restart = () => {
+    const restartGame = this.props.restartGame
+
+    restartGame()
+  }
+
   guess = (letter) => {
     const guessLetter = this.props.guessLetter
+
     guessLetter(letter)
   }
 
@@ -28,13 +37,25 @@ class Game extends Component {
 
     if (lives <= 0) {
       return (
-        <p>Você PERDEU.</p>
+        <GameFinal info='Você PERDEU.'>
+          <Button onClick={this.restart}>
+            Reiniciar
+          </Button>
+
+          <Button onClick={this.start}>
+            Outra palavra
+          </Button>
+        </GameFinal>
       )
     }
 
     if (won) {
       return (
-        <p>Você GANHOU.</p>
+        <GameFinal info={currentWord} text='Você GANHOU.'>
+          <Button onClick={this.start}>
+            Outra palavra
+          </Button>
+        </GameFinal>
       )
     }
 
@@ -49,10 +70,10 @@ class Game extends Component {
   }
 
   render() {
-    const { isFetching, errorMessage } = this.props
+    const { lives, isFetching, errorMessage } = this.props
 
     return (
-      <Page isFetching={isFetching}>
+      <Page info={`Vidas: ${lives}`} isFetching={isFetching}>
         {errorMessage
           ? `Houve um erro ao carregar os dados. ${errorMessage}`
           : this.renderGameWinLose()}
@@ -70,6 +91,7 @@ Game.propTypes = {
   isFetching: PropTypes.bool.isRequired,
   errorMessage: PropTypes.string,
   startGame: PropTypes.func.isRequired,
+  restartGame: PropTypes.func.isRequired,
   guessLetter: PropTypes.func.isRequired,
 }
 
@@ -85,6 +107,7 @@ const mapStateToProps = (state, { match }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   startGame: (id) => dispatch(gameActions.startGame(id)),
+  restartGame: (id) => dispatch(gameActions.restartGame(id)),
   guessLetter: (letter) => dispatch(gameActions.guessLetter(letter)),
 })
 

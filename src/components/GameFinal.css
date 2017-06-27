@@ -1,0 +1,30 @@
+.GameFinal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.GameFinal__info {
+  margin-bottom: 1em;
+  font-size: 2.4em;
+  font-weight: 700;
+  text-align: center;
+}
+
+.GameFinal__text {
+  margin-bottom: 1em;
+  font-size: 2em;
+  font-weight: 500;
+  text-align: center;
+}
+
+.GameFinal__footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.GameFinal__footer .Button:not(:last-child) {
+  margin-right: 1em;
+}

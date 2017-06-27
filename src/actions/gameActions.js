@@ -35,6 +35,17 @@ const guessLetter = (l) => (dispatch, getState) => {
   const letter = l.toLowerCase()
   const guess = currentWord.includes(letter)
 
+  const guessLetterSuccess = () => ({
+    type: types.GUESS_LETTER_SUCCESS,
+    currentWord,
+    correctGuesses: fromReducers.getCorrectGuesses(getState()),
+    letter,
+  })
+
+  const guessLetterFailure = () => ({
+    type: types.GUESS_LETTER_FAILURE,
+  })
+
   dispatch({
     type: types.GUESS_LETTER,
     currentWord,
@@ -42,14 +53,30 @@ const guessLetter = (l) => (dispatch, getState) => {
     letter,
     guess,
   })
+
+  return guess
+    ? dispatch(guessLetterSuccess())
+    : dispatch(guessLetterFailure())
 }
+
+const restartGame = () => (dispatch, getState) => {
+  const currentWord = fromReducers.getCurrentWord(getState()).toLowerCase()
+
+  dispatch({
+    type: types.RESTART_GAME,
+    currentWord,
+  })
+}
+
 
 export default {
   startGame,
+  restartGame,
   guessLetter,
 }
 
 export {
   startGame,
+  restartGame,
   guessLetter,
 }

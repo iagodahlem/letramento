@@ -5,6 +5,8 @@ const words = (state = [], action) => {
   switch (action.type) {
     case types.START_GAME_SUCCESS:
       return action.payload
+    case types.RESTART_GAME:
+      return []
     default:
       return state
   }
@@ -13,9 +15,10 @@ const words = (state = [], action) => {
 const currentWord = (state = '', action) => {
   switch (action.type) {
     case types.START_GAME_SUCCESS:
-      const payload = action.payload
-      const index = Math.floor(Math.random() * payload.length)
-      return payload[index]
+      return action
+        .payload[Math.floor(Math.random() * action.payload.length)]
+    case types.RESTART_GAME:
+      return action.currentWord
     default:
       return state
   }
@@ -24,6 +27,7 @@ const currentWord = (state = '', action) => {
 const guesses = (state = [], action) => {
   switch (action.type) {
     case types.START_GAME_SUCCESS:
+    case types.RESTART_GAME:
       return []
     case types.GUESS_LETTER:
       return [...state, action.letter]
@@ -35,11 +39,10 @@ const guesses = (state = [], action) => {
 const correctGuesses = (state = [], action) => {
   switch (action.type) {
     case types.START_GAME_SUCCESS:
+    case types.RESTART_GAME:
       return []
     case types.GUESS_LETTER:
-      if (action.guess)
-        return [...state, action.letter]
-      return state
+      return action.guess ? [...state, action.letter] : state
     default:
       return state
   }
@@ -48,9 +51,10 @@ const correctGuesses = (state = [], action) => {
 const lives = (state = 6, action) => {
   switch (action.type) {
     case types.START_GAME_SUCCESS:
+    case types.RESTART_GAME:
       return 6
-    case types.GUESS_LETTER:
-      return action.guess ? state : state - 1
+    case types.GUESS_LETTER_FAILURE:
+      return state - 1
     default:
       return state
   }
@@ -59,8 +63,9 @@ const lives = (state = 6, action) => {
 const won = (state = false, action) => {
   switch (action.type) {
     case types.START_GAME_SUCCESS:
+    case types.RESTART_GAME:
       return false
-    case types.GUESS_LETTER:
+    case types.GUESS_LETTER_SUCCESS:
       return action.currentWord.split('')
         .every(l => action.correctGuesses.join('').includes(l))
     default:

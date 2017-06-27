@@ -5,8 +5,8 @@
   width: 100%;
   height: var(--header-height);
   padding: 0 var(--gutter);
-  background-color: var(--primary);
-  border-bottom: 1px solid rgba(255,255,255,.2);
+  background-color: transparent;
+  border-bottom: 1px solid var(--150);
 }
 
 .Header__title {
@@ -14,7 +14,7 @@
 }
 
 .Header__title a {
-  color: var(--white);
+  color: var(--900);
   font-size: 1.2em;
   text-decoration: none;
   transition: opacity .1s ease;
@@ -41,6 +41,11 @@
 .Header__navLink:hover,
 .Header__navLink.is-active {
   opacity: .8;
+}
+
+.Header__info {
+  font-size: 1em;
+  font-weight: 700;
 }
 
 @media screen and (min-width: 768px) {

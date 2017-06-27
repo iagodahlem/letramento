@@ -3,8 +3,11 @@ import Spinner from './Spinner'
 import Wrapper from './Wrapper'
 import './Page.css'
 
-const Page = ({ title, description, headerContent, isFetching, children }) => (
+import Header from './Header'
+
+const Page = ({ info, title, description, headerContent, isFetching, children, header = true }) => (
   <div className='Page'>
+    {header && <Header info={info} />}
     {(title || description || headerContent) &&
       <header className='Page__header'>
         <Wrapper>

@@ -6,7 +6,6 @@
 }
 
 .Page__header {
-  /*min-height: calc(100vh - var(--header-height));*/
   min-height: 528px;
   background-color: var(--primary);
 }
@@ -49,6 +48,6 @@
 
 .Page__section {
   width: 100%;
-  margin-top: 2.5em;
+  margin-top: 1.5em;
   background-color: var(--white);
 }
